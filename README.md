@@ -33,6 +33,27 @@ const { message } = unicorn;
 message(); //=> 'Rainbow is awesome!'
 ```
 
+### CommonJS
+
+```js
+const autoBind = require('auto-bind-js');
+
+module.exports = class Controller {
+  constructor() {
+    autoBind(this);
+  }
+
+  index(req, res) {
+    // `this` is always bound to the instance
+    res.json(this.getData());
+  }
+
+  getData() {
+    return { status: 'ok' };
+  }
+};
+```
+
 ### Bind specific methods (shorthand)
 
 ```js
@@ -116,12 +137,12 @@ Bind methods of `self` to the instance. Returns `self`.
 
 #### Options
 
-| Option    | Type              | Description                                  |
-| --------- | ----------------- | -------------------------------------------- |
-| `include` | `(string\|symbol)[]` | Only bind these methods                       |
-| `exclude` | `(string\|symbol)[]` | Skip these methods                            |
-| `pattern` | `RegExp`          | Only bind methods whose names match this regex |
-| `lazy`    | `boolean`         | Bind on first access instead of immediately   |
+| Option    | Type                 | Description                                    |
+| --------- | -------------------- | ---------------------------------------------- |
+| `include` | `(string\|symbol)[]` | Only bind these methods                        |
+| `exclude` | `(string\|symbol)[]` | Skip these methods                             |
+| `pattern` | `RegExp`             | Only bind methods whose names match this regex |
+| `lazy`    | `boolean`            | Bind on first access instead of immediately    |
 
 ### `autoBindReact(self, options?)`
 
