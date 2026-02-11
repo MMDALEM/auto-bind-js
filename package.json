@@ -1,6 +1,6 @@
 {
   "name": "auto-bind-js",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "Automatically bind class methods to their instance. Supports include/exclude filters, decorator pattern, inheritance, and lazy binding.",
   "author": "mohammad alemzadeh <alemzadeh.mohammad@outlook.com>",
   "main": "dist/index.cjs",
@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "build": "node build.js",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --no-cache",
+    "test": "npx jest --no-cache",
     "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
@@ -48,10 +48,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/MMDALEM/auto-bind-js"
   },
   "engines": {
-    "node": ">=14"
+    "node": "22"
   },
   "devDependencies": {
     "jest": "^30.2.0"
